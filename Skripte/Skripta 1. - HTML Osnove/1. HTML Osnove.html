@@ -1,0 +1,1855 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>1. HTML Osnove.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<div>
+<h1 id="web-dizajn-i-aplikacija">Web dizajn i aplikacija</h1>
+<p><strong>Nositelj</strong>: izv. prof. dr. sc. Snježana<br>
+<strong>Suradnik</strong>: mag. inf. Alesandro Žužić</p>
+<p><strong>Ustanova</strong>: Sveučilište Jurja Dobrile u Puli, Fakultet dizajn i audiovizualne komunikacije</p>
+<p style="float: clear; display: flex; gap: 8px; align-items: center;" class="font-brioni text-sm whitespace-nowrap">
+    <img src="../Logo/fipu_logo.svg" style="height: 96px; box-shadow: none !important;" class="mr-4"></img>
+    Fakultet dizajn i audiovizualne komunikacije
+</p>
+<h1 id="1-html-osnove">[1] HTML Osnove</h1>
+<p><strong>Posljednje ažurirano:</strong> 21. listopada 2025.</p>
+<h2 id="sadr%C5%BEaj">Sadržaj</h2>
+<!-- TOC -->
+<ul>
+<li><a href="#web-dizajn-i-aplikacija">Web dizajn i aplikacija</a></li>
+<li><a href="#1-html-osnove">[1] HTML Osnove</a>
+<ul>
+<li><a href="#sadr%C5%BEaj">Sadržaj</a></li>
+<li><a href="#uvod">Uvod</a></li>
+<li><a href="#ide">IDE</a>
+<ul>
+<li><a href="#postavljanje">Postavljanje</a></li>
+</ul>
+</li>
+<li><a href="#html">HTML</a></li>
+<li><a href="#osnovni-html-elementi">Osnovni HTML elementi</a>
+<ul>
+<li><a href="#tekstualni-elementi-paragrafi-naslovi">Tekstualni elementi: paragrafi, naslovi</a>
+<ul>
+<li><a href="#paragraf">Paragraf</a></li>
+<li><a href="#naslovi-headers">Naslovi headers*</a></li>
+<li><a href="#implementacija-strukturne-hijerarhije">Implementacija strukturne hijerarhije</a></li>
+<li><a href="#za%C5%A1to-nam-treba-struktura">Zašto nam treba struktura?</a></li>
+<li><a href="#za%C5%A1to-nam-treba-semantika">Zašto nam treba semantika?</a></li>
+</ul>
+</li>
+<li><a href="#nagla%C5%A1avanje-i-va%C5%BEnost-u-html-u">Naglašavanje i važnost u HTML-u</a>
+<ul>
+<li><a href="#nagla%C5%A1avanje-emphasis">Naglašavanje emphasis*</a></li>
+<li><a href="#ugnije%C5%BE%C4%91ivanje-elemenata">Ugniježđivanje elemenata</a></li>
+<li><a href="#sna%C5%BEan-naglasak-strong-importance">Snažan naglasak strong importance*</a></li>
+<li><a href="#kombiniranje-naglaska-i-va%C5%BEnosti">Kombiniranje naglaska i važnosti</a></li>
+<li><a href="#mark">Mark</a></li>
+<li><a href="#kurziv-podebljano-podcrtano">Kurziv, podebljano, podcrtano…</a></li>
+</ul>
+</li>
+<li><a href="#liste">Liste</a>
+<ul>
+<li><a href="#nenumerirane-liste-unordered-list">Nenumerirane liste unordered list*</a></li>
+<li><a href="#numerirane-liste-ordered-list">Numerirane liste ordered list*</a></li>
+<li><a href="#ugnije%C5%BE%C4%91ivanje-lista">Ugniježđivanje lista</a></li>
+<li><a href="#opisne-liste">Opisne liste</a></li>
+</ul>
+</li>
+<li><a href="#samostalni-zadatak-za-vje%C5%BEbu-1">Samostalni zadatak za vježbu 1</a></li>
+<li><a href="#ostali-tekstualni-elementi">Ostali tekstualni elementi</a>
+<ul>
+<li><a href="#superscript--subscript">Superscript &amp; subscript</a></li>
+<li><a href="#predstavljanje-ra%C4%8Dunalnog-k%C3%B4da">Predstavljanje računalnog kôda</a></li>
+</ul>
+</li>
+<li><a href="#strukturiranje-dokumenata">Strukturiranje dokumenata</a>
+<ul>
+<li><a href="#osnovni-dijelovi-dokumenta">Osnovni dijelovi dokumenta</a></li>
+<li><a href="#ne-semanti%C4%8Dki-omota%C4%8Di">Ne-semantički omotači</a></li>
+<li><a href="#prijelomi-redaka-i-vodoravne-crte">Prijelomi redaka i vodoravne crte</a></li>
+</ul>
+</li>
+<li><a href="#void-elementi">Void elementi</a></li>
+<li><a href="#atributi">Atributi</a>
+<ul>
+<li><a href="#boolean-atributi">Boolean atributi</a></li>
+</ul>
+</li>
+<li><a href="#stvaranje-poveznica">Stvaranje poveznica</a>
+<ul>
+<li><a href="#%C5%A0to-je-hiperveza">Što je hiperveza?</a></li>
+<li><a href="#anatomija-poveznice">Anatomija poveznice</a></li>
+</ul>
+</li>
+<li><a href="#html-slike">HTML slike</a>
+<ul>
+<li><a href="#kako-staviti-sliku-na-web-stranicu">Kako staviti sliku na web stranicu?</a></li>
+<li><a href="#%C5%A0irina-i-visina">Širina i visina</a></li>
+</ul>
+</li>
+<li><a href="#samostalni-zadatak-za-vje%C5%BEbu-2">Samostalni zadatak za vježbu 2</a></li>
+<li><a href="#osnove-html-tablica">Osnove HTML tablica</a>
+<ul>
+<li><a href="#kako-tablica-funkcionira">Kako tablica funkcionira?</a></li>
+<li><a href="#izrada-prve-tablice">Izrada prve tablice</a></li>
+<li><a href="#pro%C5%A1irivanje-%C4%87elija">Proširivanje ćelija</a></li>
+</ul>
+</li>
+<li><a href="#samostalni-zadatak-za-vje%C5%BEbu-3">Samostalni zadatak za vježbu 3</a></li>
+</ul>
+</li>
+<li><a href="#tablica-elementa">Tablica elementa</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h2 id="uvod">Uvod</h2>
+<p>U ovoj sekciji ćemo se osvrnuti na osnove Web stranice.</p>
+<p>Zamislite da web stranica nije samo skup riječi i slika, već pravo <strong>tijelo</strong>. Baš kao i tijelo, stranica ima različite dijelove koji zajedno omogućuju život i funkcionalnost:</p>
+<ul>
+<li>
+<p><strong>HTML</strong> je kostur – daje strukturu stranici. Bez kostura, stranica bi bila kaotična, sve bi padalo i ništa ne bi imalo oblik. Tu definiramo naslove, paragrafe, slike i linkove – sve osnovne dijelove tijela</p>
+</li>
+<li>
+<p><strong>CSS</strong> je koža – daje oblik, boje i stil. CSS čini da stranica izgleda lijepo i privlačno, baš kao koža i odjeća koja pokriva kostur i definira vanjski izgled</p>
+</li>
+<li>
+<p><strong>JavaScript (JS)</strong> su mozak i živci – omogućuju interakciju, reakcije i dinamiku. Kroz JS stranica “misli” i reagira na korisnika: klikove, unos teksta, animacije… bez mozga i živaca, stranica bi samo stajala i ništa se ne bi događalo</p>
+</li>
+</ul>
+<img src="slike/html_css_js.png" width="500"/>
+<p>Baš kao što tijelo treba red i strukturu da bi pravilno funkcioniralo, tako i HTML mora biti pravilno organiziran. Ako zamijenimo dijelove ili ih zaboravimo, stranica neće funkcionirati kako spada.</p>
+<h2 id="ide">IDE</h2>
+<blockquote>
+<p><strong>IDE (<em>Integrated Development Environment</em>)</strong></p>
+</blockquote>
+<p><strong>IDE</strong> je integrirano razvojno okruženje koje programerima omogućuje da na jednom mjestu pišu, uređuju, testiraju i pokreću svoj kôd. Umjesto da koriste više različitih alata (<em>npr. poseban uređivač teksta, terminal i preglednik datoteka</em>), IDE sve to objedinjuje u jedno sučelje.</p>
+<h3 id="postavljanje">Postavljanje</h3>
+<p>U sljedećim koracima instalirat ćemo sve potrebne alate i ekstenzije za razvoj stranica. Za svrhu ovog kolegija koristit ćemo integrirano razvojno okruženje <strong>Visual Studio Code</strong>.</p>
+<p><img src="slike/vscode_logo.svg" style="width: 96px; height: 96px; margin: 0px;"></img></p>
+<ol>
+<li><strong>Instalacija Visual Studio Code</strong>, potrebno je preuzet i instalirat Visual Studio Code s <a href="https://code.visualstudio.com">code.visualstudio.com</a> stranice.</li>
+</ol>
+<div>
+    <img src="slike/vs_code_download.png" style="border: solid 1px lightgray; border-radius: 8px;"/>
+    <br/>
+    <p style="width: 100%; text-align: center;"><i>VS Code Download Stranica</i></p>
+</div>
+<ol start="2">
+<li>Početni pregled nakon instalacije ima otvoren početni prozor i AI chat sa strane (<em>nisu nam potrebni i nećemo ih koristiti na vježbama</em>), oboje treba zatvoriti i na lijevom izborniku odabrati <code>Explorer</code> tab.</li>
+</ol>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <img src="slike/vs_code_explorer.png" style="border: solid 1px lightgray; border-radius: 8px;"/>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>VS Code - Explorer Tab</i></p>
+</div>
+<ol start="2">
+<li>Zatim ćemo stvoriti novu datoteku tako da kliknemo na <code>New File...</code> ikonu i nazvati je <code>index.html</code>. Sakrit ćemo početni placeholder text tako da kliknemo <code>don't show</code> plavi tekst. Vrlo je bitno da je ekstenzija datoteke <code>.html</code>, jer time naglašujemo da je to HTML datoteka koju web preglednik onda može prepoznati i otvoriti.</li>
+</ol>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/vs_code_new_file.png" style="border: solid 1px lightgray; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Explorer Tab - Nova Datoteka</i></p>
+</div>
+<blockquote>
+<p><code>index</code> je početna ili zadana web stranica koja se automatski učitava pri otvaranju web-mjesta ili direktorija</p>
+</blockquote>
+<ol start="3">
+<li>Kada imamo html datoteku možemo je otvoriti u pregledniku svojeg izbora. Međutim svaki put kada napravimo novu promjenu unutar datoteke moramo iznova ručno osvježiti stranicu. Da bi izbjegli ručno osvježavanje stranice, instalirat ćemo ekstenziju <code>Live Server</code> tako da odemo u <code>Extensions</code> tab u lijevom izborniku, pretražimo ju i kliknemo <code>Install</code>.</li>
+</ol>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/live_server.png" style="border: solid 1px lightgray; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Extensions Tab - Live Server</i></p>
+</div>
+<ol start="4">
+<li>Sada imamo sve što nam je potrebno za rad sa HTML-om. Sljedeći korak nam je samo dodati osnovni kôd svake web stranice; više o strukturi HTML-a u sljedećem poglavlju:</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Primjer<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        Hello, World!
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/hello_world.png" width="100"; style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>obični <code>index.html</code></i></p>
+</div>
+<h2 id="html">HTML</h2>
+<blockquote>
+<p><strong>HTML (<em>HyperText Markup Language</em>)</strong></p>
+</blockquote>
+<p><strong>HTML</strong> je markup jezik (<em><strong>eng. <a href="https://en.wikipedia.org/wiki/Markup_language#:~:text=July%202023content%20to%20facilitate%20automated%20processing.">markup language</a></strong></em>) koji se koristi za strukturiranje sadržaja web stranica. Sastoji se od HTML elemenata koji se koriste za označavanje dijelova sadržaja. Svaki <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax#anatomy_of_an_html_element">HTML element</a> sastoji se od otvarajuće oznake (<em><strong>eng. opening tag</strong></em>), sadržaja elementa (<em><strong>eng. content</strong></em>) i zatvarajuće oznake (<em><strong>eng. closing tag</strong></em>).</p>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <img src="slike/html_element.png" style="border: solid 1px lightgray; border-radius: 8px;"/>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>HTML element</i></p>
+</div>
+<p>Osnovna struktura HTML dokumenta uvijek sadrži <code>&lt;!DOCTYPE html&gt;</code>, <code>&lt;head&gt;</code> i <code>&lt;body&gt;</code> djelove:</p>
+<ul>
+<li><code>&lt;!DOCTYPE html&gt;</code> deklaracija tipa dokumenta koja govori pregledniku da se radi o <strong>HTML5</strong> stranici</li>
+<li><code>&lt;head&gt;</code> dio obično sadrži meta informacije o dokumentu, kao što su naslov stranice, veze prema CSS datotekama, skripte itd.</li>
+<li><code>&lt;body&gt;</code> dio sadrži glavni sadržaj stranice, poput zaglavlja (<em>header</em>), navigacije (<em>nav</em>), članaka (<em>article</em>) i podnožja (<em>footer</em>)</li>
+</ul>
+<p><em>Primjer jednostavne web stranice:</em></p>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Moja web stranica<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Naslov<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">nav</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Početna<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>O nama<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Kontakt<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">main</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">article</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Članak 1<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Ovo je prvi članak.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">article</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Članak 2<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Ovo je drugi članak.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-symbol">&amp;copy;</span> 2025 Web Stranica<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/primjer_1.png" width="150" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Primjer jednostavne web stranice</i></p>
+</div>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Naziv stranice<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        Sadržaj
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+<p>Mi ćemo za svaku html datoteku uvijek koristiti ovu gornju strukturu kao početni kôd. Te sav kôd koji budemo pisali u sljedećem poglavlju nalazit će se unutar <code>body</code> elementa. Tako da u donjim primjerima neće pisati cijeli kôd, već samo onaj dio unutar <code>body</code> elementa.</p>
+<h2 id="osnovni-html-elementi">Osnovni HTML elementi</h2>
+<p>U ovoj sekciji upoznat ćemo se s osnovnim građevnim blokovima HTML-a. Svaka web stranica sastoji se od različitih elemenata koji omogućuju prikaz teksta, naslova, slika, poveznica i lista. Razumijevanje ovih elemenata ključno je za pravilno strukturiranje sadržaja i izradu funkcionalnih stranica.</p>
+<p>Nakon ovog dijela, moći ćete samostalno dodavati osnovne tekstualne i vizualne komponente te ih organizirati u logičnu i preglednu strukturu.</p>
+<h3 id="tekstualni-elementi-paragrafi-naslovi">Tekstualni elementi: paragrafi, naslovi</h3>
+<p>Većina strukturiranog teksta sastoji se od naslova i paragrafa, bilo da čitate priču, novine, udžbenik ili časopis. HTML nudi različite elemente za organizaciju i prikaz teksta. Osnovni su <strong>paragrafi</strong>, <strong>naslovi</strong>.</p>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/magazine.png" style="border: solid 1px lightgray; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Stare Novine</i></p>
+</div>
+<blockquote>
+<p>Strukturirani sadržaj čini čitanje lakšim i ugodnijim.</p>
+</blockquote>
+<h4 id="paragraf">Paragraf</h4>
+<p>Paragraf je osnovni blok teksta u HTML-u koji omogućuje da se sadržaj jasno odvoji i organizira u logične cjeline. Svaki paragraf automatski dobiva <strong>vertikalni razmak</strong> od ostalih elemenata.</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Ovo je paragraf teksta.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Još     jedan    paragraf    s     informacijama.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    
+    Treći paragraf.
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div></code></pre>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/html_paragraf.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Primjer paragrafa</i></p>
+</div>
+<blockquote>
+<p>Bez obzira na to koliko razmaka ili praznih redaka koristite unutar sadržaja HTML elementa, preglednik će prilikom prikaza <strong>sve uzastopne razmake i prijelome linija smanjiti na jedan razmak</strong>. Pa zašto onda koristiti toliko praznog prostora? Odgovor je <strong>čitkost kôda</strong>. Lakše je razumjeti što se događa u vašem kôdu ako je lijepo formatiran. Stil formatiranja (<em>koliko razmaka za svaki nivo uvlačenja, na primjer</em>) prepušten je vama, ali <strong>trebali biste razmotriti njegovo korištenje radi preglednosti</strong>.</p>
+</blockquote>
+<h4 id="naslovi-headers">Naslovi (headers)*)</h4>
+<p>Naslovi služe za organizaciju sadržaja stranice u hijerarhijsku strukturu. Postoji šest razina naslova, od <code>&lt;h1&gt;</code> (<em>glavno poglavlje; najvažniji i obično jedini glavni naslov stranice</em>), <code>&lt;h2&gt;</code> (<em>podpoglavlje</em>), <code>&lt;h3&gt;</code> (<em>pod-podpoglavlje</em>) do <code>&lt;h6&gt;</code> (<em>pod-pod-pod-pod-podpoglavlje; najmanje važno</em>).</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span> h1 - Glavni naslov stranice <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span> h2 - Sekcija ili poglavlje <span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span> h3 - Podsekcija unutar poglavlja <span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span> h4 - Detaljnija tema unutar podsekcije <span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h5</span>&gt;</span> h5 - Još specifičnija tema <span class="hljs-tag">&lt;/<span class="hljs-name">h5</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h6</span>&gt;</span> h6 - Najmanje važan ili dodatni detalj <span class="hljs-tag">&lt;/<span class="hljs-name">h6</span>&gt;</span>
+</div></code></pre>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/html_naslovi.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Primjer naslova: h1 - h6</i></p>
+</div>
+<blockquote>
+<p>Možemo uočiti da je svaki naslov podebljan i ima svoju veličinu fonta i visinu linije</p>
+</blockquote>
+<h4 id="implementacija-strukturne-hijerarhije">Implementacija strukturne hijerarhije</h4>
+<p>Na primjer, u ovoj priči element <code>&lt;h1&gt;</code> predstavlja naslov priče, elementi <code>&lt;h2&gt;</code> predstavljaju naslove poglavlja, a elementi <code>&lt;h3&gt;</code> podnaslove unutar poglavlja:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>The Fellowship of the Ring<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>By J.R.R. Tolkien<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Chapter 1: A Long-expected Party<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+  Bilbo Baggins was preparing for his eleventy-first birthday party in the Shire. 
+  Hobbits gathered from all around, enjoying the festivities and fireworks...
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Chapter 2: The Shadow of the Past<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+  Frodo reflects on the mysterious ring left by Bilbo. Gandalf warns him of its dangerous power...
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Gandalf Explains the Ring<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+  Gandalf recounts the history of the One Ring, its connection to Sauron, and the threat it poses to Middle-earth...
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div></code></pre>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/lotr.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Primjer strukturne hijerarhije</i></p>
+</div>
+<p>Ovisno o vama, elementi mogu predstavljati različite dijelove sadržaja, sve dok hijerarhija ima smisla. Pri stvaranju takvih struktura vrijedi pridržavati se nekoliko dobrih praksi:</p>
+<ul>
+<li>Preporučuje se koristiti <strong>jedan <code>&lt;h1&gt;</code> po stranici</strong> — to je naslov najviše razine, a svi ostali naslovi su hijerarhijski niže</li>
+<li>Pazite da naslove koristite u ispravnom redoslijedu hijerarhije. Nemojte koristiti <code>&lt;h3&gt;</code> za podnaslove, a zatim <code>&lt;h2&gt;</code> za još dublje podnaslove — to ne daje smislen rezultat i može dovesti do problema</li>
+<li>Od šest dostupnih razina naslova, preporučuje se koristiti <strong>najviše</strong> tri po stranici, osim ako nije nužno. Dokumenti s previše razina postaju teški za pregledavanje i navigaciju. U takvim slučajevima bolje je sadržaj raspodijeliti na više stranica ako je moguće.</li>
+</ul>
+<h4 id="za%C5%A1to-nam-treba-struktura">Zašto nam treba struktura?</h4>
+<p>Da bismo odgovorili na ovo pitanje, pogledajmo sljedeći primjer - jednostavan recept za humus.</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    Jednostavan recept za kolač od jabuke
+
+    Sastojci:
+
+    - 3 srednje jabuke
+    - 3 jaja
+    - 150 g šećera
+    - 150 g brašna
+    - 100 ml ulja
+    - 1 prašak za pecivo
+    - 1 žličica cimeta
+    - Prstohvat soli
+
+    Priprema:
+
+    1. Zagrijte pećnicu na 180°C i namažite kalup za pečenje.
+    2. Ogulite jabuke i narežite ih na tanke kriške.
+    3. Umutite jaja sa šećerom dok smjesa ne postane pjenasta.
+    4. Dodajte ulje, brašno, prašak za pecivo, cimet i sol, te sve dobro promiješajte.
+    5. Umiješajte narezane jabuke u smjesu.
+    6. Smjesu izlijte u pripremljeni kalup i poravnajte površinu.
+    7. Pecite 35-40 minuta ili dok kolač ne postane zlatno smeđi i čačkalica izlazi čista.
+    8. Ohladite kolač prije rezanja i poslužite.
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</div></code></pre>
+<p>Tijelo ovog dokumenta trenutno sadrži više dijelova sadržaja koji nisu označeni nijednim HTML elementom, već su odvojeni samo prijelomima linija i razmacima. Tekst uzgleda strukturirano, međutim, kada otvorite dokument u pregledniku, tekst se prikazuje kao <strong>jedna velika cjelina</strong>:</p>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/recept.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Primjer bez strukturne hijerarhije</i></p>
+</div>
+<p>Web stranica koja prikazuje zid neformatiranog teksta čini čitanje teškim, jer nema elemenata koji bi dali strukturu sadržaju. Preglednik ne zna što je naslov, a što paragraf.</p>
+<ul>
+<li>Korisnici obično brzo skeniraju stranicu kako bi pronašli relevantan sadržaj, često prvo čitajući naslove. <a href="https://www.nngroup.com/articles/how-long-do-users-stay-on-web-pages/">Obično provode vrlo kratko vrijeme na web stranici</a>, ako ne vide ništa korisno u nekoliko sekundi, vjerojatno će napustiti stranicu.</li>
+<li>Tražilice prilikom indeksiranja stranice smatraju naslove važnim ključnim riječima koje utječu na <a href="https://developer.mozilla.org/en-US/docs/Glossary/SEO">SEO</a> (<em>Search Engine Optimization</em>). Bez naslova, stranica će lošije rangirati.</li>
+<li>Osobe s jakim oštećenjem vida često ne čitaju web stranice, već ih <strong>slušaju</strong> pomoću softvera zvanog <strong>screen reader</strong>. Ovaj softver omogućuje brzi pristup sadržaju tako da čita naslove, što korisnicima omogućuje pronalaženje informacija bez slušanja cijelog teksta. Ako naslovi nisu dostupni, prisiljeni su slušati cijeli dokument.</li>
+<li>Za <strong>stiliziranje</strong> sadržaja pomoću <strong>CSS-a</strong> ili dodavanje interakcija s <strong>JavaScriptom</strong> potrebno je imati elemente koji obavijaju relevantni sadržaj, kako bi <strong>CSS</strong> i <strong>JS</strong> mogli učinkovito ciljati te dijelove.</li>
+</ul>
+<p>Zbog svega navedenog, <strong>sadržaj moramo strukturirati pomoću HTML elemenata</strong>.</p>
+<h4 id="za%C5%A1to-nam-treba-semantika">Zašto nam treba semantika?</h4>
+<blockquote>
+<p>Semantika je prisutna svuda oko nas – oslanjamo se na prethodno iskustvo da bismo znali čemu služi neki predmet u svakodnevnom životu. Kada nešto vidimo, znamo koja je njegova funkcija. Na primjer, očekujemo da crveno svjetlo na semaforu znači &quot;stop&quot;, a zeleno svjetlo znači &quot;kreni&quot;. Problemi nastaju ako se pogrešna semantika primijeni (<em>postoji li neka država gdje crveno znači &quot;kreni&quot;? Nadamo se da ne</em>).</p>
+</blockquote>
+<p>Na sličan način, na webu moramo koristiti ispravne HTML elemente kako bismo sadržaju dali točno značenje, funkciju ili izgled. U tom kontekstu, element <code>&lt;h1&gt;</code> je <strong>semantički element</strong> koji tekstu koji obavija daje ulogu (<em>značenje</em>) &quot;naslova najviše razine na stranici&quot;.</p>
+<h3 id="nagla%C5%A1avanje-i-va%C5%BEnost-u-html-u">Naglašavanje i važnost u HTML-u</h3>
+<blockquote>
+<p>U prethodnom smo podpoglavlju govorili o važnosti semantike u HTML-u, s fokusom na naslove i paragrafe. Ovdje nastavljamo s istom temom, ali proučavamo <strong>HTML elemente koji dodaju naglasak ili važnost tekstu</strong> (<em>slično kurzivu i podebljanom tekstu u tiskanom obliku</em>).</p>
+</blockquote>
+<p>U svakodnevnom jeziku često naglašavamo određene riječi kako bismo promijenili značenje rečenice ili istaknuli njezine dijelove. HTML nam omogućuje da to isto napravimo u pisanom obliku pomoću semantičkih elemenata koji imaju točno određenu ulogu i značenje.</p>
+<h4 id="nagla%C5%A1avanje-emphasis">Naglašavanje (emphasis)*)</h4>
+<p>Kada želimo dodati <strong>naglasak</strong> u govoru, izgovaramo određene riječi jače ili drugačijim tonom, čime mijenjamo značenje rečenice. U pisanju to obično radimo <strong>kurzivom (italic)</strong>.</p>
+<p>Primjerice, sljedeće dvije rečenice na hrvatskom imaju različito značenje:</p>
+<ul>
+<li>Meni je baš drago da nisi zakasnio.</li>
+<li><em>Meni</em> je <em>baš</em> drago da nisi <em>zakasnio.</em></li>
+</ul>
+<p>Prva zvuči iskreno i neutralno, dok druga — s naglaskom na određenim riječima — može djelovati sarkastično ili ironično, ovisno o kontekstu i tonu.</p>
+<p>U HTML-u za ovakve situacije koristimo element <strong><code>&lt;em&gt;</code></strong> (<em>emphasis</em>). Osim što poboljšava čitljivost, ovaj element prepoznaju i čitači ekrana, koji ga mogu izgovarati drugačijim tonom. Preglednici ga po zadanom prikazuju <em>kurzivno</em>, ali <strong>ne treba ga koristiti isključivo zbog vizualnog efekta</strong> — za to se koristi <code>&lt;span&gt;</code> element uz CSS stilove, ili <code>&lt;i&gt;</code> element.</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>Meni<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span> je <span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>baš<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span> drago da nisi <span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>zakasnio<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span>.
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">i</span>&gt;</span>Meni<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> je <span class="hljs-tag">&lt;<span class="hljs-name">i</span>&gt;</span>baš<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> drago da nisi <span class="hljs-tag">&lt;<span class="hljs-name">i</span>&gt;</span>zakasnio<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>.
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div></code></pre>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/emphasis.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i><code>&lt;em&gt;</code> & <code>&lt;i&gt;</code> elementi</i></p>
+</div>
+<blockquote>
+<p>Možemo uočiti da se u ovom primjeru elementi <code>&lt;em&gt;</code> &amp; <code>&lt;i&gt;</code> nalaze unuta <code>&lt;p&gt;</code> elementa, što zovemo <strong>ugniježđivanje</strong></p>
+</blockquote>
+<h4 id="ugnije%C5%BE%C4%91ivanje-elemenata">Ugniježđivanje elemenata</h4>
+<p>Elementi se mogu smještati unutar drugih elemenata – to se naziva <strong>ugniježđivanje</strong> (<em>nesting</em>).
+Ako želimo naglasiti da je naša mačka <strong>jako mrzovoljna</strong>, možemo riječ <em>jako</em> obuhvatiti elementom <code>&lt;strong&gt;</code>, koji označava jači naglasak u tekstu:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Moja mačka je <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>jako<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> mrzovoljna.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div></code></pre>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/cat.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Pravilno ugniježđivanje</i></p>
+</div>
+<p>Postoji ispravan i pogrešan način ugniježđivanja.
+U gornjem primjeru prvo smo otvorili <code>&lt;p&gt;</code> element, zatim <code>&lt;strong&gt;</code>.
+Da bi struktura bila pravilna, moramo prvo zatvoriti <code>&lt;strong&gt;</code>, pa tek onda <code>&lt;p&gt;</code>.</p>
+<p><em>Pogrešan primjer:</em></p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Moja mačka je <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>jako mrzovoljna.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>
+</div></code></pre>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/cat_wrong.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Nepravilno ugniježđivanje</i></p>
+</div>
+<p><strong>Oznake se moraju otvarati i zatvarati redoslijedom koji jasno pokazuje koji je element unutar kojeg.</strong></p>
+<p>Ako se oznake preklapaju kao u primjeru iznad, preglednik mora nagađati našu namjeru, što može dovesti do neočekivanog prikaza sadržaja.</p>
+<h4 id="sna%C5%BEan-naglasak-strong-importance">Snažan naglasak (strong importance)*)</h4>
+<p>Kada želimo izraziti <strong>važnost</strong> u govoru, naglašavamo riječi tonom, a u pisanju ih obično <strong>podebljavamo</strong>.</p>
+<p><em>Primjer:</em></p>
+<ul>
+<li>Ova tekućina je <strong>izuzetno otrovna</strong>.</li>
+<li>Računam na tebe. <strong>Nemoj</strong> zakasniti!</li>
+</ul>
+<p>U HTML-u za to koristimo element <strong><code>&lt;strong&gt;</code></strong>, koji označava da su riječi od posebne važnosti. Poput <code>&lt;em&gt;</code>, i <code>&lt;strong&gt;</code> prepoznaju čitači ekrana te ga mogu izgovarati jačim tonom. Preglednici ga po zadanom prikazuju <strong>podebljano</strong>, ali ni ovaj element ne treba koristiti samo radi izgleda — za to služi <code>&lt;span&gt;</code> uz CSS ili <code>&lt;b&gt;</code> element.</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Ova tekućina je <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>izuzetno otrovna<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Računam na tebe. <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>Nemoj<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> zakasniti!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div></code></pre>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/strong.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i><code>&lt;strong&gt;</code> & <code>&lt;b&gt;</code> elementi</i></p>
+</div>
+<h4 id="kombiniranje-naglaska-i-va%C5%BEnosti">Kombiniranje naglaska i važnosti</h4>
+<p>Elemente <code>&lt;strong&gt;</code> i <code>&lt;em&gt;</code> možemo i <strong>ugnjezditi</strong> jedan unutar drugog ako želimo dodatno pojačati značenje:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    Ova tekućina je <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>izuzetno otrovna<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> — ako je popiješ,
+    <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>možda ćeš <span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>umrijeti<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>.
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div></code></pre>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/poison.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Kombinacija elementa <code>&lt;em&gt;</code> & <code>&lt;strong&gt;</code></i></p>
+</div>
+<p>U ovom primjeru <code>&lt;strong&gt;</code> naglašava ozbiljnost izjave, dok <code>&lt;em&gt;</code> dodatno pojačava emocionalni ton riječi <em><strong>umrijeti</strong></em>.</p>
+<h4 id="mark">Mark</h4>
+<p>Element <code>&lt;mark&gt;</code> se koristi za označavanje teksta koji je posebno važan ili istaknut unutar sadržaja. Preglednici ga po zadanom prikazuju s <mark>žutom pozadinom</mark>, što pomaže čitatelju da brzo uoči važne dijelove teksta.</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Za pripremu kolača koristite <span class="hljs-tag">&lt;<span class="hljs-name">mark</span>&gt;</span>svježe jabuke<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div></code></pre>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/jabuke.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i><code>&lt;mark&gt;</code> element</i></p>
+</div>
+<p>U ovom primjeru, <code>&lt;mark&gt;</code> naglašava da su <strong>svježe jabuke</strong> ključni sastojak recepta.</p>
+<blockquote>
+<p><strong>Napomena:</strong> Nemojte miješati <code>&lt;mark&gt;</code> s elementom <code>&lt;strong&gt;</code>; <code>&lt;mark&gt;</code> se koristi za označavanje sadržaja koji ima određenu relevantnost, dok <code>&lt;strong&gt;</code> označava dijelove teksta koji su <strong>važni</strong></p>
+</blockquote>
+<h4 id="kurziv-podebljano-podcrtano">Kurziv, podebljano, podcrtano…</h4>
+<p>Elementi koje smo dosad spominjali imaju jasno definiranu semantiku. Situacija s <code>&lt;b&gt;</code>, <code>&lt;i&gt;</code> i <code>&lt;u&gt;</code> je nešto kompliciranija. Oni su nastali u vremenu kada je podrška za CSS bila slaba ili nije postojala, kako bi se tekst mogao prikazati <strong>podebljano</strong>, <em>kurzivom</em> ili <u>podcrtano</u>. Takvi elementi, koji utječu samo na izgled, a ne na značenje, nazivaju se <em>prezentacijski elementi</em> i tehnički ih više ne bi trebalo koristiti, jer je, kao što smo vidjeli, semantika vrlo važna za pristupačnost, SEO i slično.</p>
+<ul>
+<li>HTML5 je redefinirao <code>&lt;b&gt;</code>, <code>&lt;i&gt;</code> i <code>&lt;u&gt;</code> s novim, donekle zbunjujućim, semantičkim ulogama.</li>
+</ul>
+<blockquote>
+<p>Najbolje pravilo koje treba zapamtiti: <strong><code>&lt;b&gt;</code>, <code>&lt;i&gt;</code> ili <code>&lt;u&gt;</code> koristimo samo kada nema prikladnijeg semantičkog elementa</strong>, a obično postoji. Uzmite u obzir <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>, <code>&lt;mark&gt;</code> ili <code>&lt;span&gt;</code> prije nego posegnete za njima.</p>
+</blockquote>
+<p>Uvijek imajte na umu pristupačnost. Sam koncept kurziva nije naročito koristan osobama koje koriste čitače ekrana ili sustave pisanja koji nisu latinični.</p>
+<ul>
+<li><code>&lt;i&gt;</code> označeno <em>kurzivom</em>: strane riječi, taksonomske oznake, tehnički termini, misli…</li>
+<li><code>&lt;b&gt;</code> označeno <strong>podebljanim</strong> tekstom: ključne riječi, nazivi proizvoda, uvodne rečenice…</li>
+<li><code>&lt;u&gt;</code> označeno <u>podcrtanim</u> tekstom: vlastita imena, pogrešno napisane riječi…</li>
+</ul>
+<blockquote>
+<p><strong>Napomena:</strong> Ljudi podcrtavanje najčešće povezuju s poveznicama. Na webu je stoga najbolje <strong>podcrtavati samo linkove</strong>. <code>&lt;u&gt;</code> koristite kada je semantički opravdano, a za ostale slučajeve bolje je koristiti CSS za stiliziranje teksta na prikladniji način.</p>
+</blockquote>
+<h3 id="liste">Liste</h3>
+<p>Sada ćemo se posvetiti <strong>listama</strong>. Liste su svuda oko nas - od popisa za kupovinu, preko popisa uputa koje nesvjesno pratimo da bismo svakodnevno stigli kući, do popisa uputa koje pratite u ovim tutorijalima! Za to HTML ima praktičan skup elemenata koji nam omogućuje definiranje različitih vrsta lista.</p>
+<ul>
+<li>Postoje tri tipa lista: <strong>nenumerirane</strong>, <strong>numerirane</strong> i <strong>opisne liste</strong></li>
+</ul>
+<h4 id="nenumerirane-liste-unordered-list">Nenumerirane liste (unordered list)*)</h4>
+<p>Nenumerirane liste koriste se za označavanje popisa stavki <strong>za koje redoslijed nije bitan</strong>. Primjerice, popis za kupovinu:</p>
+<ul>
+<li>mlijeko</li>
+<li>jaja</li>
+<li>kruh</li>
+<li>humus</li>
+</ul>
+<p>U ovom primjeru stavke mogu biti u bilo kojem redoslijedu. Da bismo stvorili ovu listu u HTML-u, cijeli popis obavijemo elementom <code>&lt;ul&gt;</code> (<em>unordered list</em>), a svaku stavku stavimo unutar <code>&lt;li&gt;</code> (<em>list item</em>):</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>mlijeko<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>jaja<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>kruh<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>humus<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+</div></code></pre>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/unordered_list.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Nenumerirana lista</i></p>
+</div>
+<blockquote>
+<p>Element <code>&lt;ul&gt;</code> koristi se za grupiranje stavki koje <strong>nemaju numerički redoslijed</strong>, odnosno redoslijed stavki u listi nije bitan. Tipično se stavke nenumerirane liste prikazuju s <strong>znakom (bullet)</strong>, koji može biti točka, krug ili kvadrat. Stil znaka ne definira se u HTML-u, nego u CSS-u pomoću svojstva <code>list-style-type</code>.</p>
+</blockquote>
+<h4 id="numerirane-liste-ordered-list">Numerirane liste (ordered list)*)</h4>
+<p>Numerirane liste su popisi kod kojih <strong>redoslijed stavki ima značenje</strong>. Primjerice, popis uputa za vožnju:</p>
+<ol>
+<li>Vozite do kraja ulice</li>
+<li>Skrenite desno</li>
+<li>Idite ravno preko prva dva kružna toka</li>
+<li>Skrenite lijevo na trećem kružnom toku</li>
+<li>Škola je s vaše desne strane, 300 metara dalje</li>
+</ol>
+<p>Struktura u HTML-u je ista kao kod nenumeriranih lista, samo što stavke obavijamo elementom <code>&lt;ol&gt;</code> (ordered list), umjesto <code>&lt;ul&gt;</code>:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Vozite do kraja ulice<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Skrenite desno<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Idite ravno preko prva dva kružna toka<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Skrenite lijevo na trećem kružnom toku<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Fakultet je s vaše desne strane, 300 metara dalje<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span>
+</div></code></pre>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/ordered_list.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Numerirana lista</i></p>
+</div>
+<p>Ovaj element također prihvaća <strong>globalne atribute</strong> (<em>atribute ćemo detaljnije proći u kasnijem poglavlju</em>):</p>
+<ul>
+<li><strong>reversed</strong>
+<ul>
+<li>Ovaj atribut označava da su stavke liste u obrnutom redoslijedu. Stavke će se numerirati od najveće prema najmanjoj.</li>
+</ul>
+</li>
+<li><strong>start</strong>
+<ul>
+<li>Cijeli broj od kojeg počinje numeriranje stavki. Uvijek se koristi arapski broj (<em>1, 2, 3, ...</em>), čak i kada se koristi numeriranje slovima ili rimskim brojevima. Primjer: da biste počeli numerirati od slova &quot;d&quot; ili rimskog broja &quot;IV&quot;, koristite <code>start=&quot;4&quot;</code>.</li>
+</ul>
+</li>
+<li><strong>type</strong> - Postavlja vrstu numeriranja:
+<ul>
+<li><code>a</code> za mala slova</li>
+<li><code>A</code> za velika slova</li>
+<li><code>i</code> za mala rimska slova</li>
+<li><code>I</code> za velika rimska slova</li>
+<li><code>1</code> za brojeve (zadano)</li>
+</ul>
+</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">ol</span> <span class="hljs-attr">reversed</span> <span class="hljs-attr">start</span>=<span class="hljs-string">"10"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"I"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Vozite do kraja ulice<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Skrenite desno<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Idite ravno preko prva dva kružna toka<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Skrenite lijevo na trećem kružnom toku<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Fakultet je s vaše desne strane, 300 metara dalje<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span>
+</div></code></pre>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/ordered_list_attributes.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Numerirana lista s atributima</i></p>
+</div>
+<p>U ovom primjeru lista kreće u obrnutom redoslijedu počevši od brojke 10 koristeći velika rimska slova.</p>
+<blockquote>
+<p>Elementi <code>&lt;ul&gt;</code> i <code>&lt;ol&gt;</code> mogu se <strong>ugnijezditi</strong> onoliko duboko koliko je potrebno. Također, ugniježdene liste mogu izmjenjivati <code>&lt;ol&gt;</code> i <code>&lt;ul&gt;</code> bez ograničenja.</p>
+</blockquote>
+<blockquote>
+<p>Oba elementa, <code>&lt;ul&gt;</code> i <code>&lt;ol&gt;</code>, predstavljaju <strong>popis stavki</strong>. Razlika je u tome što kod <code>&lt;ol&gt;</code> <strong>redoslijed ima značenje</strong>. Kako odabrati koji element koristiti? Pokušajte promijeniti redoslijed stavki: ako se značenje promijeni, trebate koristiti <code>&lt;ol&gt;</code>. Ako redoslijed nije bitan, koristite <code>&lt;ul&gt;</code>.</p>
+</blockquote>
+<h4 id="ugnije%C5%BE%C4%91ivanje-lista">Ugniježđivanje lista</h4>
+<p>Potpuno je u redu ugnijezditi jednu listu unutar druge. Ponekad želimo imati <strong>podstavke</strong> ispod glavne stavke. Primjer upute recepta:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Ogulite češnjak i grubo nasjeckajte.<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Uklonite sjemenke i peteljku iz paprike te grubo nasjeckajte.<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Dodajte sve sastojke u blender.<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+        Obradite sve sastojke u pastu.
+        <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Ako želite grubi humus, obradite kratko.<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Ako želite glatki humus, obradite duže.<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span>
+</div></code></pre>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/lists.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Ugniježđivanje lista</i></p>
+</div>
+<p>Budući da su zadnje dvije stavke <strong>usko povezane</strong> s prethodnom (<em>čitanjem djeluju kao podupute ili izbori ispod te stavke</em>), smisleno ih je staviti u <strong>nenumeriranu listu</strong> unutar četvrte stavke.</p>
+<h4 id="opisne-liste">Opisne liste</h4>
+<p>Svrha opisnih lista je označiti <strong>skup stavki i njihovih opisa</strong>, poput pojmova i definicija ili pitanja i odgovora. Primjer seta pojmova i definicija:</p>
+<pre class="hljs"><code><div>soliloquy
+    U drami, kada lik govori sam sa sobom, prikazujući svoje unutarnje misli ili 
+    osjećaje, a u procesu ih prenosi publici (ali ne i drugim likovima).
+
+monologue
+    U drami, kada lik naglas izgovara svoje misli kako bi ih podijelio s publikom 
+    i drugim prisutnim likovima.
+
+aside
+    U drami, kada lik dijeli komentar samo s publikom radi humora ili dramatičnog 
+    efekta. Obično se radi o osjećaju, misli ili dodatnoj pozadinskoj informaciji.
+</div></code></pre>
+<p>Opisne liste koriste drugačiji <strong>omotač</strong> od ostalih tipova lista - <code>&lt;dl&gt;</code>. Svaki pojam stavlja se unutar <code>&lt;dt&gt;</code> (<em>description term</em>), a svaki opis unutar <code>&lt;dd&gt;</code> (<em>description definition</em>).</p>
+<p>Primjer u HTML-u:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">dl</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>soliloquy<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>
+        U drami, kada lik govori sam sa sobom, prikazujući svoje unutarnje misli ili osjećaje, a u procesu ih prenosi publici (ali ne i drugim likovima).
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>monologue<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>
+        U drami, kada lik naglas izgovara svoje misli kako bi ih podijelio s publikom i drugim prisutnim likovima.
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>aside<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>
+        U drami, kada lik dijeli komentar samo s publikom radi humora ili dramatičnog efekta. Obično se radi o osjećaju, misli ili dodatnoj pozadinskoj informaciji.
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dl</span>&gt;</span>
+</div></code></pre>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/description_list.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Opisna lista</i></p>
+</div>
+<p>Preglednici po zadanom <strong>uvlače opise</strong> (<code>&lt;dd&gt;</code>) u odnosu na pojmove (<code>&lt;dt&gt;</code>), čime je lista preglednija.</p>
+<h3 id="samostalni-zadatak-za-vje%C5%BEbu-1">Samostalni zadatak za vježbu 1</h3>
+<p><em>Zadan vam je sljedeći tekst:</em></p>
+<pre class="hljs"><code><div>Dnevnik čitanja
+
+Bilješke o knjigama koje sam nedavno pročitao i dojmovima koje su ostavile.
+
+Omiljene knjige
+Slijede knjige koje su me posebno oduševile:
+
+- &quot;Mali princ&quot; – filozofska priča za sve uzraste
+- &quot;1984&quot; – klasična distopija
+- &quot;Ponos i predrasude&quot; – priča o ljubavi i društvu
+
+Top 3 trenutka čitanja
+
+1. Čitanje na balkonu ujutro
+2. Popodnevno čitanje u parku
+    - Uživanje u miru i tišini
+    - Bilježenje zanimljivih citata
+3. Večernje čitanje prije spavanja
+
+Knjige i njihovi žanrovi
+
+Fantazija
+    Priče o imaginarnim svjetovima i čarobnim bićima.
+Dystopija
+    Knjige koje prikazuju mračne verzije društva i budućnosti.
+Roman
+    Duga pripovijetka o životu, ljubavi i problemima likova.
+
+Savjet: Uvijek bilježite citate i dojmove dok čitate – pomaže u kasnijem sjećanju na priču.
+</div></code></pre>
+<ul>
+<li>Cilj zadatka: <strong>formatirati ovaj tekst u HTML tako da izgleda čitko i pregledno</strong>, koristeći elemente koje smo do sada prošli</li>
+</ul>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/zadatak_1.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Izgled rješenja samostalnog zadatka za vježbu 1</i></p>
+</div>
+<h3 id="ostali-tekstualni-elementi">Ostali tekstualni elementi</h3>
+<h4 id="superscript--subscript">Superscript &amp; subscript</h4>
+<p>Ponekad ćete trebati koristiti superscript i subscript za označavanje stvari poput datuma, kemijskih formula i matematičkih jednadžbi kako bi im značenje bilo točno. Elementi <code>&lt;sup&gt;</code> i <code>&lt;sub&gt;</code> služe upravo za to. Na primjer:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    Kemijska formula kofeina je
+    C<span class="hljs-tag">&lt;<span class="hljs-name">sub</span>&gt;</span>8<span class="hljs-tag">&lt;/<span class="hljs-name">sub</span>&gt;</span>H<span class="hljs-tag">&lt;<span class="hljs-name">sub</span>&gt;</span>10<span class="hljs-tag">&lt;/<span class="hljs-name">sub</span>&gt;</span>N<span class="hljs-tag">&lt;<span class="hljs-name">sub</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-name">sub</span>&gt;</span>O<span class="hljs-tag">&lt;<span class="hljs-name">sub</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">sub</span>&gt;</span>.
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Ako je x<span class="hljs-tag">&lt;<span class="hljs-name">sup</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">sup</span>&gt;</span> = 9, x mora biti 3 ili -3.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div></code></pre>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/formula.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Superscript & subscript</i></p>
+</div>
+<h4 id="predstavljanje-ra%C4%8Dunalnog-k%C3%B4da">Predstavljanje računalnog kôda</h4>
+<p>Postoji nekoliko HTML elemenata za označavanje računalnog kôda:</p>
+<ul>
+<li><code>&lt;code&gt;</code>: za označavanje općih dijelova kôda</li>
+<li><code>&lt;pre&gt;</code>: zadržava razmake i prijelome linija (<em>blokovi kôda</em>) - ako koristite uvlačenje ili više praznih znakova, preglednici ih inače ignoriraju. Ako tekst stavite unutar <code>&lt;pre&gt;&lt;/pre&gt;</code> oznaka, razmaci će se prikazati točno onako kako su u uređivaču</li>
+<li><code>&lt;var&gt;</code>: za označavanje imena varijabli</li>
+<li><code>&lt;kbd&gt;</code>: za označavanje unosa s tipkovnice (ili drugog unosa)</li>
+</ul>
+<p>Primjeri korištenja:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span>
+    const para = document.querySelector('p');
+
+    para.onclick = function() {
+        alert('Ouuu, prestani me dirati!');
+    }
+<span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    Ne biste trebali koristiti prezentacijske elemente poput <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span><span class="hljs-symbol">&amp;lt;</span>font<span class="hljs-symbol">&amp;gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span> i <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span><span class="hljs-symbol">&amp;lt;</span>center<span class="hljs-symbol">&amp;gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>.
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    U gornjem JavaScript primjeru, <span class="hljs-tag">&lt;<span class="hljs-name">var</span>&gt;</span>para<span class="hljs-tag">&lt;/<span class="hljs-name">var</span>&gt;</span> predstavlja HTML element odlomka.
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    Odaberite sav tekst pritiskom na <span class="hljs-tag">&lt;<span class="hljs-name">kbd</span>&gt;</span>Ctrl<span class="hljs-tag">&lt;/<span class="hljs-name">kbd</span>&gt;</span>/<span class="hljs-tag">&lt;<span class="hljs-name">kbd</span>&gt;</span>Cmd<span class="hljs-tag">&lt;/<span class="hljs-name">kbd</span>&gt;</span> + <span class="hljs-tag">&lt;<span class="hljs-name">kbd</span>&gt;</span>A<span class="hljs-tag">&lt;/<span class="hljs-name">kbd</span>&gt;</span>.
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div></code></pre>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/code.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Predstavljanje računalnog kôda</i></p>
+</div>
+<h3 id="strukturiranje-dokumenata">Strukturiranje dokumenata</h3>
+<p>Osim što definiramo pojedine dijelove stranice (<em>poput &quot;odlomka&quot; ili &quot;slike&quot;</em>), HTML nudi i niz <strong>blok elemenata</strong> koji služe za definiranje područja web-stranice, poput <code>&lt;div&gt;</code>, <code>&lt;span&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code> i <code>&lt;footer&gt;</code>.</p>
+<ul>
+<li>Bitno je razumijeti zašto koristiti semantičke elemente na pravim mjestima umjesto isključivo <code>&lt;div&gt;</code> elemenata.</li>
+</ul>
+<h4 id="osnovni-dijelovi-dokumenta">Osnovni dijelovi dokumenta</h4>
+<p>Web-stranice mogu izgledati vrlo različito, ali obično dijele slične standardne komponente, osim ako stranica prikazuje fullscreen video, igru, umjetnički projekt ili je loše strukturirana:</p>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/structure.png" style="padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Struktura web stranice</i></p>
+</div>
+<ul>
+<li>
+<p><strong>Zaglavlje (<em>header</em>):</strong>
+Obično široka traka pri vrhu s velikim naslovom, logotipom i eventualnim sloganom. Obično ostaje ista na svim stranicama web-stranice.</p>
+</li>
+<li>
+<p><strong>Navigacijski izbornik (<em>nav</em>):</strong>
+Poveznice na glavne dijelove web-stranice; obično u obliku izbornika, linkova ili kartica. Kao i zaglavlje, ovaj sadržaj obično ostaje dosljedan na svim stranicama — nedosljedna navigacija zbunjuje korisnike.</p>
+</li>
+<li>
+<p><strong>Glavni sadržaj (<em>main</em>):</strong>
+Veliko područje u sredini koje sadrži većinu jedinstvenog sadržaja stranice, npr. video koji želite gledati, glavnu vijest, kartu koju želite vidjeti ili naslovnice vijesti. Ovo je dio web-stranice koji se definitivno mijenja od stranice do stranice. Najčešće sadrži i sljedeća dva bloka:</p>
+<ul>
+<li><strong>Sekcije (<em>section</em>):</strong> koristi se za grupiranje tematski povezanog sadržaja unutar glavnog sadržaja, npr. odjeljak s vijestima ili recenzijama</li>
+<li><strong>Članci (<em>article</em>):</strong> predstavlja samostalan sadržaj koji se može zasebno distribuirati ili citirati, npr. pojedinačna vijest ili blog post</li>
+</ul>
+</li>
+<li>
+<p><strong>Bočna traka (<em>aside</em>):</strong>
+Dodatne informacije, linkovi, citati, oglasi i slično. Obično je kontekstualna u odnosu na glavni sadržaj (npr. na stranici vijesti može sadržavati biografiju autora ili poveznice na srodne članke), ali ponekad sadrži i stalne elemente poput sekundarne navigacije.</p>
+</li>
+<li>
+<p><strong>Podnožje (<em>footer</em>):</strong>
+Traka na dnu stranice koja obično sadrži sitni tisak, copyright obavijesti ili kontakt informacije. Mjesto je za zajedničke informacije (poput zaglavlja), ali obično nisu ključne za samu stranicu. Podnožje se ponekad koristi i za SEO, pružajući brze poveznice na popularni sadržaj.</p>
+</li>
+</ul>
+<p><em>Primjer:</em></p>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;!doctype <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Naslov stranice<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- Zaglavlje koje se pojavljuje na svim stranicama --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Zaglavlje<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+
+        <span class="hljs-comment">&lt;!-- Navigacija --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">nav</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Početna<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Tim<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>&gt;Projekti<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Kontakt<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
+
+        <span class="hljs-comment">&lt;!-- Glavni sadržaj stranice --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">main</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">article</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Naslov članka<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+                Primjer teksta koji predstavlja glavni sadržaj stranice.
+                Ovdje se mogu nalaziti vijesti, objave ili drugi važni sadržaji.
+                <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">section</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Podnaslov<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Kratki odlomak koji dodatno objašnjava temu članka.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">section</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Još jedna sekcija<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Dodatne informacije povezane s temom članka.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span>
+
+            <span class="hljs-comment">&lt;!-- Dodatni sadržaj --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">aside</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Povezano<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Povezana tema 1<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Povezana tema 2<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">aside</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>
+
+        <span class="hljs-comment">&lt;!-- Podnožje stranice --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-symbol">&amp;copy;</span> 2025 Moja web stranica<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/main.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Osnovni dijelovi dokumenta</i></p>
+</div>
+<h4 id="ne-semanti%C4%8Dki-omota%C4%8Di">Ne-semantički omotači</h4>
+<p>Ponekad ćete naići na situaciju u kojoj ne postoji odgovarajući <strong>semantički element</strong> za grupiranje nekih stavki ili sadržaja. Ako želite samo grupirati elemente da biste ih svi zajedno stilizirali pomoću CSS-a ili manipulirali pomoću JavaScripta, HTML nudi elemente <code>&lt;div&gt;</code> i <code>&lt;span&gt;</code>. Preporučuje se koristiti ih s odgovarajućim atributom <strong>class</strong> kako bi ih bilo lakše ciljati.</p>
+<ul>
+<li><strong><code>&lt;span&gt;</code></strong> je inline ne-semantički element. Koristi se samo kada ne postoji bolji semantički element za tekst ili kada ne želite dodavati posebno značenje. Primjer:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+        Kralj je pijan hodao natrag u svoju sobu u 01:00, a pivo mu nije pomagalo dok je posrtao kroz vrata.
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"editor-note"</span>&gt;</span>
+            [Napomena urednika: U ovom trenutku predstave svjetla trebaju biti prigušena].
+        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+    <span class="hljs-selector-class">.editor-note</span> {
+        <span class="hljs-attribute">color</span>: gray;
+    }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+</div></code></pre>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/king.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i><code>&lt;span&gt;</code> element</i></p>
+</div>
+<p>U ovom primjeru, napomena urednika služi samo kao dodatna uputa redatelju i nema posebno semantičko značenje. CSS se može koristiti da se napomena vizualno odvoji od glavnog teksta.</p>
+<ul>
+<li><strong><code>&lt;div&gt;</code></strong> je block-level ne-semantički element. Koristi se kad nema prikladnijeg semantičkog block elementa ili kada ne želite dodavati posebno značenje. Primjer:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Košarica<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>Srebrne naušnice<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>: 99,95 $.
+            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Ukupna cijena: <span class="hljs-tag">&lt;<span class="hljs-name">mark</span>&gt;</span>237,89 $<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</div></code></pre>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/cart.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i><code>&lt;div&gt;</code> element</i></p>
+</div>
+<p>Ovo zapravo nije <code>&lt;aside&gt;</code>, jer ne pripada glavnom sadržaju stranice i želi se prikazati svugdje na stranici. Također nije nužno <code>&lt;section&gt;</code>, jer ne čini dio glavnog sadržaja. Zato je <code>&lt;div&gt;</code> u ovom slučaju prikladan.</p>
+<blockquote>
+<p><strong>Upozorenje:</strong> <code>&lt;div&gt;</code> elementi su vrlo praktični, pa ih je lako pretjerano koristiti. Budući da nemaju semantičko značenje, mogu nepotrebno zakomplicirati vaš HTML kôd. Koristite ih samo kada ne postoji bolja semantička alternativa i trudite se smanjiti njihovu uporabu na minimum.</p>
+</blockquote>
+<h4 id="prijelomi-redaka-i-vodoravne-crte">Prijelomi redaka i vodoravne crte</h4>
+<p>Dva elementa koja se povremeno koriste i korisno ih je poznavati su <strong><code>&lt;br&gt;</code></strong> i <strong><code>&lt;hr&gt;</code></strong>.</p>
+<ul>
+<li>
+<p><strong><code>&lt;br&gt;</code> - element za prijelom retka</strong>
+Element <code>&lt;br&gt;</code> stvara <strong>prijelom retka</strong> unutar odlomka. Koristi se kada želite da se tekst prikazuje u više kratkih, fiksnih redaka - primjerice u <strong>poštanskoj adresi</strong> ili <strong>pjesmi</strong>. Primjer:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+  Nekad je bio čovjek zvan O'Dell<span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span>
+  Koji je volio pisati HTML<span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span>
+  No struktura mu je bila loša, semantika tužna,<span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span>
+  pa mu se kôd baš i nije dobro čitao.
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div></code></pre>
+  <div style="width: fit-content; display: flex; flex-direction: column;">
+      <div style="display: flex; justify-content: center;">
+          <img src="slike/br.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+      </div>
+      <br/>
+      <p style="margin-top: -16px; width: 100%; text-align: center;"><i><code>&lt;br&gt;</code> element</i></p>
+  </div>
+<p>Bez <code>&lt;br&gt;</code> oznaka, cijeli bi se tekst prikazao u jednom dugom retku (<em>jer HTML ignorira većinu praznina u kôdu</em>).</p>
+</li>
+<li>
+<p><strong><code>&lt;hr&gt;</code> - element za tematski prijelom</strong>
+Element <code>&lt;hr&gt;</code> stvara <strong>vodoravnu crtu</strong> u dokumentu koja označava <strong>tematsku promjenu</strong> u tekstu (<em>npr. promjenu teme, mjesta radnje ili scene</em>). Vizualno izgleda kao jednostavna vodoravna linija. Primjer:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+  Ivan je bio stjeran u kut od strane bijesnih čudovišta. Uplašen, ali odlučan da zaštiti svoje prijatelje,
+  podigao je štapić i pripremio se za borbu, nadajući se da je poziv u pomoć stigao do njih.
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">hr</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+  U međuvremenu, Marko je sjedio kod kuće, gledao u ekran i razmišljao kada će izaći sljedeće izdanje,
+  kad mu je kroz prozor uletjelo čarobno pismo. Pogledao ga je i uzdahnuo: "Vrijeme je da se vratim na posao."
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div></code></pre>
+  <div style="width: fit-content; display: flex; flex-direction: column;">
+      <div style="display: flex; justify-content: center;">
+          <img src="slike/hr.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+      </div>
+      <br/>
+      <p style="margin-top: -16px; width: 100%; text-align: center;"><i><code>&lt;hr&gt;</code> element</i></p>
+  </div>
+<p>Rezultat je da se između dva odlomka pojavi <strong>vodoravna linija</strong> koja jasno odvaja dvije cjeline teksta.</p>
+</li>
+</ul>
+<h3 id="void-elementi">Void elementi</h3>
+<p>Nisu svi elementi građeni po obrascu: otvarajući tag, sadržaj i zatvarajući tag. Neki elementi se sastoje <strong>samo od jednog taga</strong> i obično služe za umetanje nečega u dokument. Takvi elementi nazivaju se <strong>void elementi</strong> kao što su <code>&lt;br&gt;</code>, <code>&lt;hr&gt;</code> i <code>&lt;img&gt;</code> elementi.</p>
+<h3 id="atributi">Atributi</h3>
+<p>Kod <code>ol</code> elementa koristili smo <code>start</code> i <code>type</code> atribute. Svi elementi mogu imati <strong>atribute</strong>, izgledaju ovako:</p>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/attr.png" style="border: solid 1px lightgray; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Primjer Atributa</i></p>
+</div>
+<ul>
+<li>primjer oznake odlomka s atributom <code>class=&quot;editor-note&quot;</code></li>
+</ul>
+<p>Atributi sadrže <strong>dodatne informacije o elementu</strong> koje se ne prikazuju u samom sadržaju.
+U ovom primjeru, atribut <strong>class</strong> služi kao identifikator koji omogućuje ciljanje elementa pomoću stilskih pravila (<em>CSS-a</em>).</p>
+<p>Atribut mora imati:</p>
+<ul>
+<li>razmak između naziva elementa i samog atributa (ako element ima više atributa, oni se međusobno odvajaju razmacima)</li>
+<li><strong>naziv atributa</strong>, nakon kojeg slijedi <strong>znak jednakosti (<code>=</code>)</strong></li>
+<li><strong>vrijednost atributa</strong>, unutar <strong>navodnika</strong> (<em>otvoreni i zatvoreni navodnici</em>)</li>
+</ul>
+<h4 id="boolean-atributi">Boolean atributi</h4>
+<p>Ponekad ćete vidjeti atribute napisane <strong>bez vrijednosti</strong> kao što smo kod <code>ol</code> elementa koristili smo <code>reversed</code> atribut. To je potpuno prihvatljivo i takvi se atributi nazivaju <strong>boolean atributi</strong>.</p>
+<ul>
+<li>Kada je boolean atribut naveden bez vrijednosti ili s bilo kojom vrijednošću (npr. <code>&quot;false&quot;</code>), atribut se <strong>uvijek smatra postavljenim na true</strong></li>
+<li>Ako atribut <strong>nije naveden</strong> u HTML oznaci, smatra se da je postavljen na false</li>
+</ul>
+<h3 id="stvaranje-poveznica">Stvaranje poveznica</h3>
+<p><strong>Poveznice</strong> (<em>ili hiperveze</em>) su vrlo važne - one čine Web webom. Ovaj tekst objašnjava sintaksu za stvaranje poveznica i dobre prakse njihovog korištenja.</p>
+<h4 id="%C5%A1to-je-hiperveza">Što je hiperveza?</h4>
+<p><strong>Hiperveze</strong> omogućuju povezivanje dokumenata s drugim dokumentima ili resursima, povezivanje na određene dijelove dokumenata ili dostupnost aplikacija na web-adresi. Gotovo svaki web-sadržaj može postati poveznica, tako da klikom web-preglednik odlazi na drugu web-adresu (<em>URL - Uniform Resource Locator</em>).</p>
+<blockquote>
+<p><strong>Napomena:</strong> URL može pokazivati na HTML datoteke, tekstualne datoteke, slike, video i audio datoteke ili bilo što drugo na webu. Ako preglednik ne zna kako prikazati datoteku, ponudit će opciju otvaranja u odgovarajućoj aplikaciji ili preuzimanja datoteke.</p>
+</blockquote>
+<h4 id="anatomija-poveznice">Anatomija poveznice</h4>
+<p>Osnovna poveznica se stvara tako da se tekst ili drugi sadržaj omotaju unutar <code>&lt;a&gt;</code> elementa i koristi atribut <code>href</code> koji sadrži web-adresu.</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    Kreiram poveznicu na
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.mozilla.org/en-US/"</span>&gt;</span>Mozilla početnu stranicu<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>.
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div></code></pre>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/a.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Primjer poveznice</i></p>
+</div>
+<p>Gotovo svaki sadržaj, uključujući blok elemente, može postati poveznica. Na primjer, ako želite da naslov bude poveznica, omotajte <code>&lt;h1&gt;</code> unutar <code>&lt;a&gt;</code> elementa:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://developer.mozilla.org/en-US/"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>MDN Web Docs<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+Dokumentiranje web-tehnologija, uključujući CSS, HTML i JavaScript, od 2005.
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div></code></pre>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/h1a.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Primjer blok poveznice</i></p>
+</div>
+<ul>
+<li>Ovo čini da naslov postane poveznica.</li>
+</ul>
+<h3 id="html-slike">HTML slike</h3>
+<p>Na početku web je bio samo tekst i bio je prilično dosadan. Srećom, uskoro je dodana mogućnost umetanja slika (<em>i drugih zanimljivih sadržaja</em>) u web stranice. U ovom poglavlju ćemo detaljno pogledati kako koristiti <code>&lt;img&gt;</code> element.</p>
+<h4 id="kako-staviti-sliku-na-web-stranicu">Kako staviti sliku na web stranicu?</h4>
+<p>Za umetanje slike koristimo <code>&lt;img&gt;</code> element. To je <strong>void element</strong> (<em>ne može imati djecu i nema zatvarajući tag</em>) koji zahtijeva <strong>dva atributa</strong>: <code>src</code> i <code>alt</code>.</p>
+<ul>
+<li><code>src</code> sadrži URL do slike koju želimo prikazati. Može biti <strong>relativan</strong> ili <strong>apsolutni URL</strong>. Bez <code>src</code> atributa <code>&lt;img&gt;</code> element nema što prikazati.</li>
+<li><code>alt</code> atribut opisuje sliku tekstom, koristan kada slika nije vidljiva ili se sporo učitava</li>
+</ul>
+<p>Primjer: ako se slika zove <code>cat.jpg</code> i nalazi se u istoj mapi kao HTML stranica:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"cat.jpg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Cat"</span> /&gt;</span>
+</div></code></pre>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/cat.jpg" width="200" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Primjer slike</i></p>
+</div>
+<p>Ako je slika u podmapi <code>slike</code>:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"slike/cat.jpg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Cat"</span> /&gt;</span>
+</div></code></pre>
+<p>Možemo koristiti i apsolutni URL:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://www.example.com/images/cat.jpg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Cat"</span> /&gt;</span>
+</div></code></pre>
+<blockquote>
+<p><strong>Napomena:</strong> bolje je koristiti slike na vlastitom serveru i relativne URL-ove radi lakšeg održavanja.</p>
+</blockquote>
+<h4 id="%C5%A1irina-i-visina">Širina i visina</h4>
+<p>Možete koristiti <code>width</code> i <code>height</code> da odredite dimenzije slike u pikselima:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"cat.jpg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Tall Cat"</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"cat.jpg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Wide Cat"</span> /&gt;</span>
+</div></code></pre>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/catz.png" width="200" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Primjer slika</i></p>
+</div>
+<blockquote>
+<p><strong>Napomena:</strong> ne koristite HTML atribute za promjenu veličine slike; to može dovesti do zamućenja i gubitka kvalitete, kao na primjeru gore. Ako trebate promijeniti veličinu, koristite <strong>CSS</strong> ili prilagodite sliku u editoru prije objave.</p>
+</blockquote>
+<h3 id="samostalni-zadatak-za-vje%C5%BEbu-2">Samostalni zadatak za vježbu 2</h3>
+<p>Kreirajte HTML stranicu koja sadrži sljedeće podatke:</p>
+<pre class="hljs"><code><div>Moj foto-dnevnik
+
+
+Bilješke i slike iz mog svakodnevnog života
+
+Početna
+Galerija
+Kontakt
+
+
+Početna
+
+Dobrodošli u moj dnevnik! Ovdje možete vidjeti slike i zanimljive trenutke iz mog života.
+Nadam se da će vam se svidjeti moj izbor.
+
+---
+
+Galerija slika
+
+Šuma u jesen
+(slika)
+Moja mačka u popodnevnom odmoru
+(slika)
+
+Slike putovanja
+
+Hotel (slika) Pogled s planine (slika) Šalica kave na stolu (slika)
+
+
+Opis galerije
+
+U ovoj sekciji možete vidjeti više detalja o slikama:
+
+- Šuma u jesen: Predivne boje lišća i miris prirode
+- Hotel: Hotelska soba s 5 zvjezdica
+- Mačka koja spava: Omiljeni ljubimac u opuštenom trenutku
+- Pogled s planine: Inspirativni pejzaž za slikanje
+- Šalica kave na stolu: Trenutak opuštanja uz kavu
+Svaka slika ima svoj trenutak i priču - nadam se da ćete uživati u galeriji.
+
+---
+
+Povezano
+
+- Blog o fotografiji
+- Moji hobiji
+- Kontaktirajte me
+
+© 2025 Moj foto-dnevnik | Zadnja izmjena: 21. listopad 2025
+</div></code></pre>
+<ul>
+<li>Cilj zadatka: <strong>formatirati ovaj tekst u HTML tako da izgleda čitko i pregledno</strong>, koristeći elemente koje smo do sada prošli</li>
+</ul>
+<p>Struktura:</p>
+<ol>
+<li><strong>Zaglavlje</strong> - naslov stranice i kratki opis</li>
+<li><strong>Navigacija</strong> - tri poveznice (<em>Početna, Galerija, Kontakt</em>)</li>
+<li><strong>Glavni sadržaj</strong> uključuje:
+<ul>
+<li>Sekciju Galerija Slika</li>
+<li><strong>2 slike</strong> (<code>300x200</code>; <em>natire, cat_sleep</em>).
+<ul>
+<li>Za svaku sliku koristite atribute <code>src</code>, <code>alt</code>, <code>width</code> i <code>height</code></li>
+<li><strong>3 slike</strong> (<code>3200x150</code>; <em>hotel, mountain, coffe</em>)
+<ul>
+<li>slike &quot;hotel&quot; nema pa piše <code>alt</code> vrijednost</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Donju bočnu traku</strong> s dodatnim poveznicama (<em>Blog o fotografiji, Moji hobiji, Kontaktirajte me</em>)</li>
+<li><strong>Podnožje</strong> s copyright informacijama i datumom</li>
+</ol>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/zadatak_2.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Izgled rješenja samostalnog zadatka za vježbu 2</i></p>
+</div>
+<h3 id="osnove-html-tablica">Osnove HTML tablica</h3>
+<p>Tablica je strukturirani skup podataka koji se sastoji od redaka i stupaca (tzv. <em>tablični podaci</em>). Tablice omogućuju jednostavan pregled i usporedbu informacija koje imaju međusobnu povezanost - npr. osoba i njezine godine, dan u tjednu ili raspored plivanja u bazenu.</p>
+<p>Tablice su oduvijek bile prisutne u ljudskom društvu, kao što pokazuje i primjer popisa stanovništva SAD-a iz 1800. godine. Nije iznenađenje što su i u HTML-u uvedeni elementi koji omogućuju strukturirano prikazivanje takvih podataka na webu.</p>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/old_table.png" style="border: solid 1px lightgray; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Tablica popisa stanovništva SAD-a iz 1800. godine</i></p>
+</div>
+<h4 id="kako-tablica-funkcionira">Kako tablica funkcionira?</h4>
+<p>Svrha tablice je da bude <strong>precizno strukturirana</strong>. Korisnik može brzo uočiti povezanost podataka uspoređujući redke i stupce. Na primjer, ako tražimo plinski div s 62 mjeseca, lako ga možemo pronaći kombinacijom zaglavlja redka i stupca.</p>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/mjeseci.png" style="border: solid 1px lightgray; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Tablica planeta Sunčevog sustava</i></p>
+</div>
+<blockquote>
+<p>HTML tablice treba koristiti <strong>samo za prikaz tabličnih podataka</strong>. U prošlosti su se koristile i za izradu izgleda stranice, no to se danas smatra pogrešnim jer:</p>
+<ul>
+<li><strong>Smanjuju pristupačnost:</strong> čitači ekrana teško interpretiraju složene strukture</li>
+<li><strong>Stvaraju &quot;tag soup&quot;:</strong> kôd postaje previše kompliciran i težak za održavanje</li>
+<li><strong>Nisu responzivne:</strong> širina tablice ovisi o sadržaju, a ne o širini prikaznog okvira</li>
+</ul>
+</blockquote>
+<h4 id="izrada-prve-tablice">Izrada prve tablice</h4>
+<p>Osnovna struktura tablice započinje s oznakama:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">table</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+</div></code></pre>
+<p>Unutar tablice, <strong>ćelije</strong> se stvaraju pomoću oznake <code>&lt;td&gt;</code> (<em>table data</em>):</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Pozdrav, ja sam tvoja prva ćelija.<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+</div></code></pre>
+<p>Ako želimo četiri ćelije u jednom redu, ponovimo ih:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">table</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Prva<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Druga<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Treća<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Četvrta<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+</div></code></pre>
+<p>Svaka <code>&lt;td&gt;</code> oznaka predstavlja jednu ćeliju u redu.
+Da bismo označili <strong>redak</strong>, koristimo oznaku <code>&lt;tr&gt;</code> (<em>table row</em>):</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Prva<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Druga<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Treća<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Četvrta<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+</div></code></pre>
+<p>Dodavanjem više <code>&lt;tr&gt;</code> elemenata stvaramo nove redke tablice.</p>
+<p><strong>Dodavanje zaglavlja pomoću <code>&lt;th&gt;</code> elemenata</strong>
+Zaglavlja označavaju naziv stupaca ili redaka i pišu se pomoću oznake <code>&lt;th&gt;</code> (<em>table header</em>). Ona su automatski <strong>podebljana i centrirana</strong>.</p>
+<p><em>Primjer:</em></p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">table</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Osoba<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Dob<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Ivan<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>30<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+</div></code></pre>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/table.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Primjer tablice</i></p>
+</div>
+<h4 id="pro%C5%A1irivanje-%C4%87elija">Proširivanje ćelija</h4>
+<p>Ponekad želimo da se jedna ćelija proteže kroz više redaka ili stupaca. Za to koristimo atribute:</p>
+<ul>
+<li><code>colspan=&quot;broj&quot;</code> → proteže ćeliju kroz više <strong>stupaca</strong></li>
+<li><code>rowspan=&quot;broj&quot;</code> → proteže ćeliju kroz više <strong>redaka</strong></li>
+</ul>
+<p><em>Primjer:</em></p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">table</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">colspan</span>=<span class="hljs-string">"3"</span>&gt;</span>Raspored predavanja<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Dan<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Predmet<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Vrijeme<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">rowspan</span>=<span class="hljs-string">"2"</span>&gt;</span>Ponedjeljak<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Programiranje<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>08:00 - 10:00<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Baze podataka<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>10:15 - 12:00<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Utorak<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">colspan</span>=<span class="hljs-string">"2"</span>&gt;</span>Nema predavanja<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Srijeda<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Računalne mreže<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>09:00 - 11:00<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+</div></code></pre>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/colrowspan.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i><code>colspan</code> & <code>rowspan</code></i></p>
+</div>
+<p>Ovim pristupom dobivamo pregledne i strukturirane tablice koje su čitljive i bez dodatnog stiliziranja.</p>
+<h3 id="samostalni-zadatak-za-vje%C5%BEbu-3">Samostalni zadatak za vježbu 3</h3>
+<p>Kreirajte HTML stranicu s tablicom koja sadrži sljedeće podatke:</p>
+<pre class="hljs"><code><div>Rows:
+- Terrestrial planets
+    - Mercury 0.330 4,879 5427 3.7 4222.6 57.9 167 0 Closest to the Sun
+    - Venus 4.87 12,104 5243 8.9 2802.0 108.2 464 0
+    - Earth 5.97 12,756 5514 9.8 24.0 149.6 15 1 Our world
+    - Mars 0.642 6,792 3933 3.7 24.7 227.9 -65 2 The red planet
+- Jovian planets
+    - Gas giants
+        - Jupiter 1898 142,984 1326 23.1 9.9 778.6 -110 67 The largest planet
+        - Saturn 568 120,536 687 9.0 10.7 1433.5 -140 62
+- Ice giants
+    - Uranus 86.8 51,118 1271 8.7 17.2 2872.5 -195 27
+    - Neptune 102 49,528 1638 11.0 16.1 4495.1 -200 14
+- Dwarf planets*
+    - Pluto 0.0146 2,370 2095 0.7 153.3 5906.4 -225 5 Declassified as a planet in 2006, but this &lt;a href=&quot;http://www.usatoday.com/story/tech/2014/10/02/pluto-planet-solar-system/16578959/&quot;&gt;remains controversial&lt;/a&gt;
+
+Columns:
+- Name
+- Mass (10&lt;sup&gt;24&lt;/sup&gt;kg)
+- Diameter (km)
+- Density (kg/m&lt;sup&gt;3&lt;/sup&gt;)
+- Gravity (m/s&lt;sup&gt;2&lt;/sup&gt;)
+- Length of day (hours)
+- Distance from Sun (10&lt;sup&gt;6&lt;/sup&gt;km)
+- Mean temperature (°C)
+- Number of moons
+- Notes
+</div></code></pre>
+<ul>
+<li>Cilj zadatka: <strong>formatirati ovaj tekst u HTML tako da izgleda čitko i pregledno</strong>, koristeći elemente koje smo do sada prošli</li>
+</ul>
+<div style="width: fit-content; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+        <img src="slike/zadatak_3.png" style="border: solid 1px lightgray; padding: 8px; border-radius: 8px;"/>
+    </div>
+    <br/>
+    <p style="margin-top: -16px; width: 100%; text-align: center;"><i>Izgled rješenja samostalnog zadatka za vježbu 3</i></p>
+</div>
+<h2 id="tablica-elementa">Tablica elementa</h2>
+<blockquote>
+<p>Treba napomenuti da je dolaskom <strong>HTML5</strong> standarda uvedeno mnogo novih elemenata i atributa koji omogućuju bolje semantičko označavanje sadržaja web stranica. Semantičko označavanje je važno jer pomaže tražilicama i drugim alatima da bolje razumiju strukturu i značenje sadržaja na web stranici. Svakako je moguće gotovo sve elemente stilizirati pomoću CSS-a i svesti na <code>div</code> i <code>span</code> elemente, ali korištenje semantičkih elemenata poboljšava pristupačnost i <a href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide#:~:text=SEO%E2%80%94short%20for%20search%20engine,site%20through%20a%20search%20engine.">SEO</a> (<em>Search Engine Optimization</em>) web stranice.</p>
+</blockquote>
+<p>U najnovijem HTML standardu za vrijeme pisanja ove skripte (<em>listopad 2025</em>), postoji $142$ HTML elementa. U tablici ispod prikazani su neki od najčešće korištenih HTML elemenata, zajedno s njihovim opisima, atributima i primjerima korištenja. Svakako provjerite i <a href="https://www.spiceworks.com/tech/tech-general/articles/what-is-html-five/">HTML5 specifikaciju</a></p>
+<table>
+<thead>
+<tr>
+<th>Naziv elementa</th>
+<th>Opis</th>
+<th>Atributi</th>
+<th>Primjer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;html&gt;</code></td>
+<td>Korijenski element HTML dokumenta</td>
+<td><code>lang</code></td>
+<td><code>&lt;html lang=&quot;en&quot;&gt; ... &lt;/html&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;head&gt;</code></td>
+<td>Sadrži meta-informacije o dokumentu</td>
+<td>-</td>
+<td><code>&lt;head&gt; ... &lt;/head&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;title&gt;</code></td>
+<td>Naslov dokumenta, prikazan u naslovnoj traci preglednika</td>
+<td>-</td>
+<td><code>&lt;title&gt;Naslov stranice&lt;/title&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;body&gt;</code></td>
+<td>Glavni sadržaj HTML dokumenta</td>
+<td>-</td>
+<td><code>&lt;body&gt; ... &lt;/body&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;h1&gt;</code> do <code>&lt;h6&gt;</code></td>
+<td>Naslovi različitih razina</td>
+<td>-</td>
+<td><code>&lt;h1&gt;Naslov 1&lt;/h1&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;p&gt;</code></td>
+<td>Paragraf teksta</td>
+<td>-</td>
+<td><code>&lt;p&gt;Ovo je paragraf.&lt;/p&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;a&gt;</code></td>
+<td>Hiperlink (poveznica)</td>
+<td><code>href</code>, <code>target</code></td>
+<td><code>&lt;a href=&quot;https://example.com&quot;&gt;Link&lt;/a&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;img&gt;</code></td>
+<td>Ugrađena slika</td>
+<td><code>src</code>, <code>alt</code>, <code>width</code>, <code>height</code></td>
+<td><code>&lt;img src=&quot;slika.jpg&quot; alt=&quot;Opis slike&quot;&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;ul&gt;</code></td>
+<td>Neuređena lista (bez numeriranja)</td>
+<td>-</td>
+<td><code>&lt;ul&gt;&lt;li&gt;Prva stavka&lt;/li&gt;&lt;li&gt;Druga stavka&lt;/li&gt;&lt;/ul&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;ol&gt;</code></td>
+<td>Uređena lista (numerirana)</td>
+<td>-</td>
+<td><code>&lt;ol&gt;&lt;li&gt;Prva stavka numerirano&lt;/li&gt;&lt;li&gt;Druga stavka numerirano&lt;/li&gt;&lt;/ol&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;li&gt;</code></td>
+<td>Stavka liste</td>
+<td>-</td>
+<td><code>&lt;li&gt;Stavka&lt;/li&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;table&gt;</code></td>
+<td>Tablica</td>
+<td>-</td>
+<td><code>&lt;table&gt; ... &lt;/table&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;tr&gt;</code></td>
+<td>Redak u tablici</td>
+<td>-</td>
+<td><code>&lt;tr&gt; ... &lt;/tr&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;td&gt;</code></td>
+<td>Ćelija u tablici</td>
+<td><code>colspan</code>, <code>rowspan</code></td>
+<td><code>&lt;td colspan=&quot;2&quot;&gt;Ćelija&lt;/td&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;th&gt;</code></td>
+<td>Zaglavlje ćelije u tablici</td>
+<td><code>colspan</code>, <code>rowspan</code>, <code>scope</code></td>
+<td><code>&lt;th scope=&quot;col&quot;&gt;Zaglavlje&lt;/th&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;div&gt;</code></td>
+<td><a href="https://www.w3schools.com/html/html_blocks.asp#:~:text=A%20block%2Dlevel%20element%20always,p%3E%20and%20.">Block element</a> za grupiranje sadržaja</td>
+<td>-</td>
+<td><code>&lt;div&gt; ... &lt;/div&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;span&gt;</code></td>
+<td><a href="https://www.w3schools.com/html/html_blocks.asp#:~:text=A%20block%2Dlevel%20element%20always,p%3E%20and%20.">Inline element</a> za grupiranje sadržaja</td>
+<td>-</td>
+<td><code>&lt;span&gt; ... &lt;/span&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;br&gt;</code></td>
+<td>Prijelom linije</td>
+<td>-</td>
+<td><code>Tekst&lt;br&gt;Prelomljena linija</code></td>
+</tr>
+<tr>
+<td><code>&lt;hr&gt;</code></td>
+<td>Horizontalna linija</td>
+<td>-</td>
+<td><code>&lt;hr&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;b&gt;</code> &amp; <code>&lt;strong&gt;</code></td>
+<td>Podebljani tekst</td>
+<td>-</td>
+<td><code>&lt;b&gt;Podebljano&lt;/b&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;i&gt;</code> &amp; <code>&lt;em&gt;</code></td>
+<td>Kurziv tekst</td>
+<td>-</td>
+<td><code>&lt;i&gt;Kurziv&lt;/i&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;u&gt;</code></td>
+<td>Podvučeni tekst</td>
+<td>-</td>
+<td><code>&lt;u&gt;Podvučeno&lt;/u&gt;</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>
