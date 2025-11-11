@@ -1,0 +1,113 @@
+<html>
+    <head>
+        <title>Primjer</title>
+        <style>
+
+            .container {
+                margin: auto;
+                width: 500px;
+                margin-top: 32px;
+                padding: 8px 32px;
+                background: lightblue;
+                border-radius: 16px;
+            }
+            h1 {
+                color: midnightblue;
+                background-color: aliceblue;
+                padding: 8px 32px;
+                border-radius: 999px;
+            }
+            h2 {
+                color: midnightblue;
+            }
+
+            .links {
+                background-color: aliceblue;
+                padding: 4px;
+                border-radius: 4px;
+                gap: 0px;
+            }
+
+            .link {
+                background-color: cornflowerblue;
+                color: white;
+                font-weight: bold;
+                padding: 8px;
+                border-radius: 4px;
+                margin: 8px;
+                text-align: center;
+            }
+
+            .features {
+                background-color: aliceblue;
+                padding: 4px 16px 16px;
+                margin-top: 16px;
+                border-radius: 4px;
+            }
+            .feature {
+                border-bottom: 2px solid;
+                border-radius: 4px;
+            }
+            h3 {
+                font-size: 24px;
+            }
+            .feature p {
+                font-size: 20px;
+            }
+            footer {
+                background-color: darkblue;
+                text-align: center;
+                color: aliceblue;
+                padding: 2px;
+                border-radius: 4px;
+                margin-top: 14px;
+                margin-bottom: 16px;
+                font-weight: bold;
+            }
+            footer span {                
+                text-decoration: underline;
+            }
+
+        </style>
+    </head>
+
+    <body>
+    <div class="container">
+        <header>
+            <h1>Putovanja iz snova</h1>
+            <h2>Otkrij svijet</h2>
+        </header>
+
+        <section class="about">
+            <p>Uživam u <span>planiranju putovanja</span> i otkrivanju novih kultura. Fotografiranje prirode također je moj hobi.</p>
+            <p>Najdraža mjesta su mi planine, jezera i povijesni gradovi diljem Europe.</p>
+        </section>
+
+        <section class="links">
+            <div class="link">Destinacija 1</div>
+            <div class="link">Destinacija 2</div>
+            <div class="link">Destinacija 3</div>
+        </section>
+
+        <section class="features">
+            <div class="feature">
+                <h3>Avantura</h3>
+                <p>Svakodnevne aktivnosti pružaju osjećaj avanture i uzbuđenja.</p>
+            </div>
+            <div class="feature">
+                <h3>Kultura</h3>
+                <p>Učenje o lokalnim običajima i gastronomiji proširuje vidike putnika.</p>
+            </div>
+            <div class="feature">
+                <h3>Smještaj</h3>
+                <p>Odabir kvalitetnog smještaja osigurava ugodan boravak. <span>Rezervirajte unaprijed</span> za najbolju cijenu.</p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>Kontakt: <span>info@putovanja.com</span></p>
+        </footer>
+    </div>
+
+    </body>
+</html>
